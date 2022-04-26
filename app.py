@@ -35,13 +35,14 @@ def predict():
     
     #predictions
     
+    with open('encoder.pkl', 'rb') as f:
+        encoder = pickle.load(f)
+
     try:
-      with open('encoder.pkl', 'rb') as f:
-          encoder = pickle.load(f)
+        data_df = encoder.transform(data_df)
     except:
-      print("No encoder exist")
+      print("Encoder transform failed")
             
-    data_df = encoder.transform(data_df)
     result = exported_pipeline.predict(data_df)
    
     #decode the output
