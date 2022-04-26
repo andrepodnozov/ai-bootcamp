@@ -45,14 +45,6 @@ def predict():
             
     result = exported_pipeline.predict(data_df)
    
-    #decode the output
-    try:
-      with open('target_encoder.pkl', 'rb') as f:
-          target_encoder = pickle.load(f)
-      result = target_encoder.inverse_transform(result)
-    except:
-        print("No target encoder exist")
-    
     #send back to browser
     output = {'results': result[0]}
     
