@@ -38,10 +38,10 @@ def predict():
     try:
       with open('encoder.pkl', 'rb') as f:
           encoder = pickle.load(f)
-      data_df = encoder.transform(data_df)
     except:
       print("No encoder exist")
-      
+            
+    data_df = encoder.transform(data_df)
     result = exported_pipeline.predict(data_df)
    
     #decode the output
