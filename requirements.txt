@@ -6,4 +6,5 @@ requests
 sklearn
 scikit-learn
 gunicorn
+feature-engine
     
